@@ -4,6 +4,8 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
+    
+    url(r'^$', include('lunchapp.urls')),
 
     url(r'^lunchapp/', include('lunchapp.urls')),
 

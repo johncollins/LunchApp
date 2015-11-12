@@ -84,11 +84,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'lunchapp', 'static')
+STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 
 # Locations for non-app specific static files
 STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'lunchapp', 'static'),
 )
 
 TEMPLATE_DIRS = (
