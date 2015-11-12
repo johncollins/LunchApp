@@ -89,7 +89,6 @@ STATIC_URL = '/static/'
 
 # Locations for non-app specific static files
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'lunchapp', 'static'),
 )
 
 TEMPLATE_DIRS = (
