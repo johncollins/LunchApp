@@ -1,6 +1,5 @@
 {% load staticfiles %}
 
-
 {% include 'lunchapp/base.html' %}
 
 <script type="text/javascript" src="{% static "lunchapp/js/signup.js" %}"></script>
@@ -11,24 +10,26 @@
         <div class="container col-md-8">
           <form id="add-form" action="add_person/" method="POST">
             {% csrf_token %}
-            <div class="col-md-4 container">
+            <div class="col-md-3 container">
               <div class="input-group">
               {% include "lunchapp/not_signed_up_selector.html" %}
               </div>
               <br/>
-                <input id="add-person-button" type="submit" value="Sign me up for {{month}}, {{year}}!" />
+                <input class="col-md-12" id="add-person-button" type="submit" value="Sign me up" color="green" />
             </div>
           </form>
+          <div class="col-md-1 container"></div>
           <form id="remove-form" action="remove_person/" method="POST">
             {% csrf_token %}
-            <div class="col-md-4 container">
+            <div class="col-md-3 container">
               <div class="input-group">
               {% include "lunchapp/signed_up_selector.html" %}
               </div>
               <br/>
-              <input id="remove-person-button" type="submit" value="Unsubscribe me for {{month}}, {{year}}!" /> 
+              <input class="col-md-12" id="remove-person-button" type="submit" value="I'm out" color="red" /> 
             </div>
           </form>
+          <div class="col-md-1 container"></div>
 			  </div>
 			  <div class="container col-md-4">
 				  <h4 align="center">Signed Up</h4>
