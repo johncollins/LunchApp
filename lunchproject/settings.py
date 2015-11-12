@@ -96,6 +96,11 @@ TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'lunchapp', 'templates'),
 )
 
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
 # settings.py
 LOGGING = {
     'version': 1,
