@@ -1,0 +1,5 @@
+<select name="chosen_person" id="not-signed-up-selector" class="form-control" >
+  {% for person in not_signed_up %}
+    <option value="{{ person.email }}">{{ person.name }}</option>
+  {% endfor %}
+</select>

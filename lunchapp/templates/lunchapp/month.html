@@ -1,0 +1,65 @@
+{% load staticfiles %}
+
+
+{% include 'lunchapp/base.html' %}
+
+<script type="text/javascript" src="{% static "lunchapp/js/signup.js" %}"></script>
+	{% if month and year %}
+	<section id="signup-section" class="container content-section text-center">
+    <div class="col-lg-8 col-lg-offset-2">
+        <div class="row">
+        <div class="container col-md-8">
+          <form id="add-form" action="add_person/" method="POST">
+            {% csrf_token %}
+            <div class="col-md-4 container">
+              <div class="input-group">
+              {% include "lunchapp/not_signed_up_selector.html" %}
+              </div>
+              <br/>
+                <input id="add-person-button" type="submit" value="Sign me up for {{month}}, {{year}}!" />
+            </div>
+          </form>
+          <form id="remove-form" action="remove_person/" method="POST">
+            {% csrf_token %}
+            <div class="col-md-4 container">
+              <div class="input-group">
+              {% include "lunchapp/signed_up_selector.html" %}
+              </div>
+              <br/>
+              <input id="remove-person-button" type="submit" value="Unsubscribe me for {{month}}, {{year}}!" /> 
+            </div>
+          </form>
+			  </div>
+			  <div class="container col-md-4">
+				  <h4 align="center">Signed Up</h4>
+				    {% include "lunchapp/signed_up_list.html" %}
+          <a href="#group-section"><h7>see best groups</h7></a>
+			  </div> 	
+		  </div>
+    </div>
+	</section>
+  
+  <!--<section id="group-section" class="container content-section text-center">-->
+	<section id="group-section" class="container content-section">
+    <div class="row">
+      <div class="span9">
+        <!--<div class="col-lg-12 col-lg-offset-2">-->
+        <h4 align="center">Best Groups</h4>
+      {% include "lunchapp/groups.html" %}
+    </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2">
+        <h4 align="center">What does <i>best</i> mean?</h4>
+        If there are six or more participants then we can divide the participants into groups of three or four. We then fill these groups randomly over and over and pick the arrangement which has the highest score. Scores are based on how recently pairs of participants have been in the same group already. For example, in the demo above, Dave and Paul have never been out together so they have a score of 1. However, George and Ringo have been out very recently and so have a score of 0.25. Since we keep the group with the greatest sum of pairwise scores, George and Ringo are far less likely to be placed in the same group than are Dave and Paul. If there are less than six partipants, only one group is made; a large group of five. 
+      </div>
+    </div>
+  </section>
+
+    {% else %}
+	
+		<p>Year or month doesn't exist.</p>
+		
+	{% endif %}
+	
+{% include 'lunchapp/foot.html' %}
