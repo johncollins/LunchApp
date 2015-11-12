@@ -44,7 +44,7 @@ def add_person(request, year, month):
         message = 'Cannot select a person from an empty listl' 
     #email_utils.send_signup_success_email(person, month)
     
-    groups = month._make_grouping()
+    groups = month.make_grouping()
 
     if request.is_ajax():
         logger.debug('this is an ajax request')
@@ -96,7 +96,7 @@ def remove_person(request, year, month):
         message = 'Cannot select a person from an empty listl' 
     #email_utils.send_removal_success_email(person, month)
     
-    groups = month._make_grouping()
+    groups = month.make_grouping()
 
     if request.is_ajax():
         logger.debug('this is an ajax request')
@@ -136,7 +136,7 @@ def sign_up(request, year, month):
     template = loader.get_template('lunchapp/month.html')
     signed_up = month_object.signed_up.all()
     not_signed_up = list(set(Person.objects.all()).difference(signed_up))
-    groups = month_object._make_grouping()
+    groups = month_object.make_grouping()
 
     context = RequestContext(request, {
         'month': months[month-1],
