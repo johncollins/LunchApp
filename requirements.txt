@@ -3,6 +3,7 @@ Pycolor==1.2.1
 South==1.0.2
 appnope==0.1.0
 decorator==4.0.4
+dj-database-url==0.3.0
 django-twitter-bootstrap==3.3.0
 gnureadline==6.3.3
 gunicorn==19.3.0
