@@ -88,6 +88,7 @@ class Month(models.Model):
         repn = len(group_sizes) * 100
         people = list(self.signed_up.all())
         max_score = 0.0
+        best_groups = [people[group[0]:group[1]] for group in partition]
         for rep in xrange(1, repn):
             local_random.shuffle(people) 
             groups = [people[group[0]:group[1]] for group in partition]
@@ -101,7 +102,9 @@ class Month(models.Model):
         """Get the score for a list of groups"""
         cost = 0
         scores = [PairwiseScore.objects.filter(Q(holder__email__in=map(lambda x: x.email, group))).filter(Q(partner__email__in=map(lambda x: x.email, group))).aggregate(score=Sum('score'))['score'] for group in groups]
-        return sum(scores)
+        if scores[0]:
+            return sum(scores)
+        return 0.0
 
     def __get_group_sizes(self, num_people):
         """Decide what the group sizes should be"""
