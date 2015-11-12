@@ -144,4 +144,8 @@ LOGGING = {
 }
 
 import dj_database_url
-DATABASES['default'] =  dj_database_url.config()
+# if 'DATABASE_URL' does no exist, then it's local machine
+if not os.environ.has_key('DATABASE_URL'):
+    os.environ['DATABASE_URL'] = 'postgres://johnssocks:password@localhost/db.lunchproject.postgres'
+DATABASES = {'default': dj_database_url.config(default=os.environ['DATABASE_URL'])}
+
