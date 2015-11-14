@@ -46,39 +46,3 @@ $(document).ready(function() {
 	});
 });
 
-/*
-	Remove a person
-	Use ajax on submit to dynamically update the database and then 
-	refresh the lists of people who are signed up and not signed up
-*/
-$(document).ready(function() {
-	var frm = $('#remove-form');
-	frm.submit(function(event) { 	
-		event.preventDefault();
-        var chosen = frm.find('.custom-active').data('email');
-        var input = $("<input>")
-               .attr("type", "hidden")
-               .attr("name", "chosen_person").val(chosen);
-        frm.append($(input));
-		$.ajax({
-			type: frm.attr('method'),
-			url: frm.attr('action'),
-			data: frm.serialize(),
-			success: function (stuff) {
-                if ($('#signed-up-selector').children('a').length > 0) {
-                    $("#signed-up-selector").replaceWith(stuff['signed_up_selector']);
-                    $("#signed-up-list").replaceWith(stuff['signed_up_list']);
-                    $('#not-signed-up-selector').replaceWith(stuff['not_signed_up_selector']);
-				    $("#groups-list").replaceWith(stuff['groups']);
-                    $('#message').text(stuff['message']);
-                } else {
-                    $('#message').text(stuff['message']);
-                };
-			},
-			error: function(data) {
-				$("#message").text("Something went wrong!");
-			}
-		});
-		return false;
-	});
-});
