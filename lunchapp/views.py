@@ -99,5 +99,4 @@ def sign_up(request, year, month):
         'groups': groups
     })
     return HttpResponse(template.render(context))
-    
-    
+        
