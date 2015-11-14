@@ -1,5 +1,6 @@
-<select name="chosen_person" id="not-signed-up-selector" class="form-control" >
+<div name="add" id="not-signed-up-selector" class="list-group" >
+  <a href="#" class="list-group-item selection-title disabled">Not signed Up</a>
   {% for person in not_signed_up %}
-    <option value="{{ person.email }}">{{ person.name }}</option>
+    <a href="#" data-email="{{ person.email }}" class="list-group-item selection">{{ person.name }}</a>
   {% endfor %}
-</select> 
+</div> 

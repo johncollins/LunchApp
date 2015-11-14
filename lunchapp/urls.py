@@ -11,5 +11,6 @@ urlpatterns = patterns('',
 	# e.g. /lunchapp/2014/January
 	url(r'(?i)^(?P<year>201[4-9])/(?P<month>January|February|March|April|May|June|July|August|September|October|November|December)/$', views.sign_up, name='sign_up'),
 	url(r'(?i)^(?P<year>201[4-9])/(?P<month>January|February|March|April|May|June|July|August|September|October|November|December)/add_person/$', views.add_person, name='add_person'),
+	url(r'(?i)^(?P<year>201[4-9])/(?P<month>January|February|March|April|May|June|July|August|September|October|November|December)/update_lists/$', views.update_lists, name='update_lists'),
 	url(r'(?i)^(?P<year>201[4-9])/(?P<month>January|February|March|April|May|June|July|August|September|October|November|December)/remove_person/$', views.remove_person, name='remove_person'),
 )

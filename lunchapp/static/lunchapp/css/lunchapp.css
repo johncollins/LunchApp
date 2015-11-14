@@ -1,0 +1,22 @@
+a.selection.custom-active {
+  color: #000;
+  background-color: #BCED91;
+}
+
+a.selection.custom-highlight {
+  background-color: #BCED91;
+}
+
+a.selection-title {
+  color: #BCED91;
+}
+
+a.list-group-item:first-child, disabled {  
+    color: #000;
+}
+    
+.custom-list-item {
+    color: #BCED91;
+    list-style-type: none;
+}
+

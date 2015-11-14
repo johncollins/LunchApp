@@ -1,11 +1,11 @@
 <!-- <div id='groups-list' class="col-lg-8 col-lg-offset-2"> -->
-<div id='groups-list' class="row">
+<div id='groups-list'>
   {% for group in groups %}
     <ul class="list-group row" align="center">
-      <li color="white" class="col-xs-2">Group</li>
-    {% for person in group %}
-    <li class="list-group-item col-xs-2">{{ person.name }}</li>
-    {% endfor %}
+      <li class="col-xs-2"><font color="green"><h6>Group</h6></font></li>
+      {% for person in group %}
+      <li class="list-group-item col-xs-2">{{ person.name }}</li>
+      {% endfor %}
     </ul>
   {% endfor %}
 </div>
